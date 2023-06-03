@@ -1,5 +1,5 @@
 import './componentsstyle.css'
-import { Link, NavLink } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 import { useRef, useState } from 'react';
 
 function Header(){
