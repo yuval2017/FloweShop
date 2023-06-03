@@ -1,0 +1,130 @@
+.resize-animation-stopper * {
+  transition: none !important;
+  animation: none !important;
+}
+.flex{
+  display: flex;
+  gap: var(--gap, 1rem)
+  
+  
+}
+.logo{
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  z-index: 9999;
+  
+}
+.primary-header{
+  
+  align-items: center;
+  justify-content: space-between;
+  
+
+  pointer-events: none;
+}
+.primary-navigation{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: hsl(0 0% 0% / 0.5);
+}
+/* check if the web support */
+@supports(backdrop-filter: blur(1rem)){
+  .primary-navigation{
+    background: hsl(0 0% 100%/ 0.1);
+    backdrop-filter: blur(1rem) ;
+  }
+}
+.mobile-nav-toggle{
+  display: none;
+}
+@media (max-width: 35em){
+  .resize-animation-stopper * {
+    transition: none !important;
+    animation: none !important;
+  }
+  .primary-header{
+    pointer-events: auto;
+    padding-top: 90px;
+    
+  }
+
+  .primary-navigation{
+    --gap: 2em;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 30%;
+
+    flex-direction: column;
+    padding: min(30vh,10rem) 2em;
+
+    transform: translateX(100%);
+    transition: transform 350ms ease-out;
+    
+    
+  }
+  .mobile-nav-toggle{
+    
+    display: block;
+    position: absolute;
+    z-index: 9990;
+    /* no backround color */
+    background-color: transparent;
+    /* background: url('../assets/hamburger.svg'); */
+    width: 2rem;
+    background-repeat: no-repeat;
+    /* gives width ind hight the same */
+    aspect-ratio: 1;
+    top: 2em;
+    right: 2em;
+  }
+}
+@media (min-width: 35em){
+  .primary-navigation{
+
+    --gap: clamp(1.5rem, 5vw, 3rem);
+    /* only top and bottom */
+    padding-block: 2rem;
+    /* right and left */
+    padding-inline: clamp(3rem, 8vw, 10rem);
+  }
+}
+/* @media(min-width: 35em) and (max-width: 55em){
+ .primary-navigation {
+  background-color: red;
+ }
+} */
+/* if data-visible is true */
+.primary-navigation[data-visible = "true"]{
+  transform: translateX(0%);
+}
+.primary-navigation a{
+  text-decoration: none;
+}
+.mobile-nav-toggle[aria-expanded = "true"]{
+  /* use here close icon */
+  background-color: bisque;
+}
+
+.carousel-item{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+  animation: scaleInfinite infinite 15s;
+}
+@keyframes scaleInfinite{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
