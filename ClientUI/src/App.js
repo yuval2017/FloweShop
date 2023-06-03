@@ -8,14 +8,13 @@ import {
 } from "react-router-dom"
 
 import Layout from "./layouts/Layout"
-import HomeFlowers from "./pages/home/HomeFlower"
+import HomeFlowers from "./pages/Home/HomeFlowers"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
      <Route
       index
-      path="home"
-      element={<HomeFlowers />}
+      element={<HomeFlowers/>}
     />
   </Route>
 ))

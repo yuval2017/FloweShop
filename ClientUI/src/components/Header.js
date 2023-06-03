@@ -1,5 +1,5 @@
 import './componentsstyle.css'
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useRef, useState } from 'react';
 
 function Header(){
@@ -29,21 +29,24 @@ function handleClick(){
 }
   return (
     <header onClick={handleSideBarClick} className='primary-header flex'>
-      <div className='logo'> 
-        <Link to="/home">AsFlowers</Link>
-      </div>
+      
+
       <button onClick={handleClick} className='mobile-nav-toggle' aria-controls='primary-navigation' aria-expanded = {mobileNavOpen}>
         <span className='sr-only'></span>
       </button>
-      <nav className="header">
+      <NavLink className='logo' to="home">
+        AsFlowers
+      </NavLink>
+      <nav className="nav-list flex">
+      
         <ul id = "primary-navigation" ref={primaryNavRef} data-visible = {mobileNavOpen} className='primary-navigation flex'>
           <li className="left-header">
-          <Link to="/home">AsFlowers</Link>
-            </li>
-          <li className="middle-header">
+            <NavLink to="home">Home</NavLink>
+          </li>
+          {/* <li className="middle-header">
             <Link to="/about">About</Link>
             <Link to="/Flowers">Flowers</Link>
-          </li>
+          </li> */}
           {/* <li className="right-header">
             <div className='shopping-cart-icon-container'>
               <img className='shopping-cart-icon' src={shopping_cart} alt = "fail load cart"/>

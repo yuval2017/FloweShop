@@ -5,28 +5,31 @@
 .flex{
   display: flex;
   gap: var(--gap, 1rem)
-  
-  
 }
 .logo{
   position: absolute;
-  top: 2em;
+  top: 1.75em;
   left: 2em;
   z-index: 9999;
-  
 }
-.primary-header{
-  
-  align-items: center;
-  justify-content: space-between;
-  
+.primary-header a{
+  text-decoration: none;
+}
 
-  pointer-events: none;
+.primary-header a:hover{
+  text-decoration: underline;
+}
+
+.primary-header{
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+ 
 }
 .primary-navigation{
   list-style: none;
-  padding: 0;
-  margin: 0;
+
   background-color: hsl(0 0% 0% / 0.5);
 }
 /* check if the web support */
@@ -47,7 +50,6 @@
   .primary-header{
     pointer-events: auto;
     padding-top: 90px;
-    
   }
 
   .primary-navigation{
@@ -82,14 +84,22 @@
 }
 @media (min-width: 35em){
   .primary-navigation{
-
+    
+  
+   
     --gap: clamp(1.5rem, 5vw, 3rem);
     /* only top and bottom */
     padding-block: 2rem;
     /* right and left */
     padding-inline: clamp(3rem, 8vw, 10rem);
   }
+  .primary-header{
+    width: 100%;
+    align-items: center;
+  }
+ 
 }
+
 /* @media(min-width: 35em) and (max-width: 55em){
  .primary-navigation {
   background-color: red;
@@ -99,13 +109,14 @@
 .primary-navigation[data-visible = "true"]{
   transform: translateX(0%);
 }
-.primary-navigation a{
-  text-decoration: none;
-}
+
 .mobile-nav-toggle[aria-expanded = "true"]{
   /* use here close icon */
   background-color: bisque;
 }
+
+
+
 
 .carousel-item{
   position: absolute;
@@ -127,4 +138,23 @@
   100%{
     transform: scale(1);
   }
+}
+
+
+.contact-links{
+  list-style: none;
+  display: flex;
+  gap: 0.77rem;
+  padding-left: 30px;
+}
+.contact-links a{
+  padding-top: 20px;
+  width: clamp(2rem, 5vw, 2.5rem);
+}
+.contact-links a img{
+  width: 100%;
+  object-fit: contain;
+}
+.waze-icon{
+  background-color: white;
 }
