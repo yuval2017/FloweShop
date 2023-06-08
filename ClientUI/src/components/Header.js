@@ -1,7 +1,7 @@
 import './componentsstyle.css'
 import {NavLink } from "react-router-dom";
 import { useRef, useState } from 'react';
-
+import shoppingCart from '../assets/shopping-cart-3041.svg'
 function Header(){
 const [mobileNavOpen, setMobileNavOpen] = useState()
 const primaryNavRef = useRef(null);
@@ -42,6 +42,14 @@ function handleClick(){
         <ul id = "primary-navigation" ref={primaryNavRef} data-visible = {mobileNavOpen} className='primary-navigation flex'>
           <li className="left-header">
             <NavLink to="home">Home</NavLink>
+          </li>
+          <li className='cart-nav'>
+            <NavLink  to = "cart">
+              <img className='cart-icon' src={shoppingCart} alt ="cart-image"/>
+            </NavLink>
+            <div className='items-num'>
+              100
+            </div>
           </li>
           {/* <li className="middle-header">
             <Link to="/about">About</Link>

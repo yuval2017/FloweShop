@@ -1,0 +1,77 @@
+.home-page {
+  gap: 3rem;
+  flex-direction: column;
+  padding-inline: 5rem;
+}
+
+.flowers-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.flower-container-home {
+  --brightness: 1.5;
+  border-radius: 10%;
+  border: 1px solid transparent;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  filter: brightness(1);
+  border-color: #FFB6C1; /* Set the border color */
+}
+
+
+
+
+.flower-image-container:hover {
+  filter: brightness(1.1); /* Updated brightness value on hover */
+}
+.flower-details {
+  position: relative; /* Reset position to relative */
+  z-index: 300; /* Set a higher z-index to keep it above the image */
+}
+
+.flower-image-container {
+  position: relative;
+  padding-inline: 10px;
+  padding-top: 10px;
+}
+
+.flower-image-container img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.5s ease; /* Specify multiple transitions */
+}
+
+.flower-image-container:hover img {
+  transform: scale(1.2);
+}
+
+.flower-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: ce;
+
+  background: linear-gradient(to bottom, white, #FFECF7, #FFD9EF, #FFCCE5);
+  color: #fff;
+  border-inline: inherit;
+}
+.flower-details button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: transparent;  
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition effect for transform */
+
+  
+}
+
+.flower-details button:hover {
+  background: linear-gradient(to bottom, white, #FFECF7, #FFD9EF, #FFCCE5);
+  text-decoration: underline;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transform: translate(2px, -2px);
+}

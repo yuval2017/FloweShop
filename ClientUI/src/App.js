@@ -8,13 +8,14 @@ import {
 } from "react-router-dom"
 
 import Layout from "./layouts/Layout"
-import HomeFlowers from "./pages/Home/HomeFlowers"
-
+import HomeFlowers, {loader as homeFlowersLoader} from "./pages/Home/HomeFlowers"
+import "./server"
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
      <Route
       index
       element={<HomeFlowers/>}
+      loader={homeFlowersLoader}
     />
   </Route>
 ))

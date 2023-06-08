@@ -158,3 +158,33 @@
 .waze-icon{
   background-color: white;
 }
+
+/* bag icon */
+.cart-nav{
+  width: 8%;
+
+  position: relative;
+}
+
+.cart-icon{
+  width: 100%;
+  object-fit: contain;
+  
+}
+.items-num{
+  position: absolute;
+  bottom: 1.3em;
+  right: 0.05em; 
+  background-color: red;
+  font-size: 0.5rem;
+  color: white;
+  font-weight: bold;
+  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  aspect-ratio: 1;
+
+}
