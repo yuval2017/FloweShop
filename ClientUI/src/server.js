@@ -31,7 +31,7 @@ createServer({
         })
 
         this.get("/flowers/:id", (schema, request) => {
-            return new Response(400, {}, {error: "Error fetching data"})
+            //return new Response(400, {}, {error: "Error fetching data"})
             const id = request.params.id
             return schema.flowers.find(id)
         })

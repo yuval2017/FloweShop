@@ -10,7 +10,7 @@ export function Flowers({flowersData}){
           <div key = {flower.id} className="flower-container-home">
             <Link to={flower.id}>
               <div className="flower-image-container">
-                <img src={getImagePath(flower.imageUrl)}/>
+                <img src={getImagePath(flower.imageUrl)} alt = "Not Found"/>
               </div>
             </Link>
             <div className="flower-details">

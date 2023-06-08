@@ -45,7 +45,7 @@ function handleClick(){
           </li>
           <li className='cart-nav'>
             <NavLink  to = "cart">
-              <img className='cart-icon' src={shoppingCart} alt ="cart-image"/>
+              <img className='cart-icon' src={shoppingCart} alt ="Not Found"/>
             </NavLink>
             <div className='items-num'>
               100
