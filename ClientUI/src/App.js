@@ -19,7 +19,6 @@ const router = createBrowserRouter(createRoutesFromElements(
       element={<HomeFlowers/>}
       loader={homeFlowersLoader}
     >
-    <Route exact path=":id" element={<FlowerDetail />} loader={flowerDetailLoader} />
 
     </Route>
      <Route path="FlowerpotAndBouquet">
@@ -28,11 +27,14 @@ const router = createBrowserRouter(createRoutesFromElements(
       element = {<FlowerpotAndBouquet />}
       loader={flowerpotAndBouquetLoader}
       />
+      
       <Route path=":id" 
       element={<FlowerDetail />}
       loader={flowerDetailLoader}
       />
      </Route>
+     <Route path=":id" element={<FlowerDetail />} loader={flowerDetailLoader} />
+
   </Route>
 ))
 

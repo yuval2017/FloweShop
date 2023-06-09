@@ -12,13 +12,12 @@ export default function FlowerDetail(){
   function getImagePath(imgUrl){
     return require('../assets/Flowers/' + imgUrl)
   }
-  console.log(promiseData)
   return(
   <div>
     <React.Suspense fallback={<div>Loading flower details...</div>}>
       <Await resolve={promiseData.flowerDetail}>
         { flowerDetail =>{
-          return  <img  src={getImagePath(flowerDetail.imageUrl)} alt="Flower does not found" style={{maxWidth: "100%", height: "auto"}}/>
+          return  <img src={getImagePath(flowerDetail.imageUrl)} alt="Flower does not found" style={{maxWidth: "100%", height: "auto"}}/>
           }
         }
         
