@@ -8,15 +8,22 @@ createServer({
     },
 
     seeds(server) {
-        server.create("flower", { id: "1", name: "Modest Explorer", price: 60, description: "", imageUrl: 'flowerpot_1.jpeg', type: "flowerpot" })
-        server.create("flower", { id: "2", name: "Beach Bum", price: 80, description: "", imageUrl: 'flowerpot_2.jpeg', type: "flowerpot"})
-        server.create("flower", { id: "3", name: "Reliable Red", price: 100, description: "", imageUrl: 'flowerpot_3.jpeg', type: "flowerpot"})
-        server.create("flower", { id: "4", name: "Dreamfinder", price: 65, description: "", imageUrl: 'flowerpot_4.jpeg', type: "flowerpot"})
-        server.create("flower", { id: "5", name: "The Cruiser", price: 120, description: "", imageUrl: 'flowerpot_5.jpeg', type: "flowerpot"})
-        server.create("flower", { id: "6", name: "Green Wonder", price: 70, description: "", imageUrl: 'flowerpot_6.png', type: "flowerpot"})
-        server.create("flower", { id: "7", name: "Green Wonder", price: 70, description: "", imageUrl: 'orchid_1.png', type: "orchid"})
-        server.create("flower", { id: "8", name: "Green Wonder", price: 70, description: "", imageUrl: 'orchid_2.png', type: "orchid"})
-        server.create("flower", { id: "9", name: "Green Wonder", price: 70, description: "", imageUrl: 'orchid_3.png', type: "orchid"})
+        server.create("flower", { id: "1", name: "Modest Explorer", price: 60, description: "", imageUrl: 'Bouquet_1.jpeg', type: {category: "bouquet"} })
+        server.create("flower", { id: "2", name: "Beach Bum", price: 80, description: "", imageUrl: 'Bouquet_2.jpeg', type: {category: "bouquet"}})
+        server.create("flower", { id: "3", name: "Reliable Red", price: 100, description: "", imageUrl: 'Bouquet_3.jpeg', type: {category: "bouquet"}})
+        server.create("flower", { id: "4", name: "Dreamfinder", price: 65, description: "", imageUrl: 'Bouquet_4.jpeg', type: {category: "bouquet"}})
+        server.create("flower", { id: "5", name: "The Cruiser", price: 120, description: "", imageUrl: 'Bouquet_5.jpeg', type: {category: "bouquet"}})
+        server.create("flower", { id: "6", name: "Green Wonder", price: 70, description: "", imageUrl: 'Bouquet_6.png', type: {category: "bouquet"}})
+        server.create("flower", { id: "7", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_1.png', type: {category: "flowerpot", type: "orchid"}})
+        server.create("flower", { id: "8", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_2.png', type: {category: "flowerpot", type: "orchid"}})
+        server.create("flower", { id: "9", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_3.png', type: {category: "flowerpot", type: "orchid"}})
+        server.create("flower", { id: "11", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_4.png', type: {category: "flowerpot", type: "1"}})
+        server.create("flower", { id: "12", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_5.png', type: {category: "flowerpot", type: "1"}})
+        server.create("flower", { id: "13", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_6.png', type: {category: "flowerpot", type: "1"}})
+        server.create("flower", { id: "14", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_7.png', type: {category: "flowerpot", type: "1"}})
+        // server.create("flower", { id: "15", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_6.png', type: {category: "flowerpot", type: "1"}})
+        // server.create("flower", { id: "16", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_6.png', type: {category: "flowerpot", type: "1"}})
+
         server.create("user", { id: "123", email: "b@b.com", password: "p123", name: "Bob" })
     },
 
@@ -35,7 +42,9 @@ createServer({
             const id = request.params.id
             return schema.flowers.find(id)
         })
-
+        this.get("/FlowerpotAndBouquet", (schema, request) => {
+            return schema.flowers.where((flower) => flower.type.category === "flowerpot");
+        });
         this.get("/host/flowers", (schema, request) => {
             
             // Hard-code the hostId for now

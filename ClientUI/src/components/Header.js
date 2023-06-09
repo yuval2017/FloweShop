@@ -34,14 +34,14 @@ function handleClick(){
       <button onClick={handleClick} className='mobile-nav-toggle' aria-controls='primary-navigation' aria-expanded = {mobileNavOpen}>
         <span className='sr-only'></span>
       </button>
-      <NavLink className='logo' to="home">
+      <NavLink className='logo' to="/">
         AsFlowers
       </NavLink>
       <nav className="nav-list flex">
-      
         <ul id = "primary-navigation" ref={primaryNavRef} data-visible = {mobileNavOpen} className='primary-navigation flex'>
-          <li className="left-header">
-            <NavLink to="home">Home</NavLink>
+          <li className="left-header d-flex">
+            {/* <NavLink to="/">Home</NavLink> */}
+            <NavLink to="FlowerpotAndBouquet">Flowerpot/Bouquet</NavLink>
           </li>
           <li className='cart-nav'>
             <NavLink  to = "cart">

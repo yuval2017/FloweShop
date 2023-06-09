@@ -4,6 +4,9 @@ export function Flowers({flowersData}){
   function getImagePath(imgUrl){
     return require('../assets/Flowers/' + imgUrl)
   }
+  if (flowersData === undefined){
+    return <div>Undifined FLowers Data</div>
+  }
   return (
     <div  className="flowers-grid">
       { flowersData.map(flower => 

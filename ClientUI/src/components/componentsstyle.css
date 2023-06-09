@@ -14,6 +14,8 @@
 }
 .primary-header a{
   text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
 }
 
 .primary-header a:hover{
@@ -25,12 +27,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
- 
 }
 .primary-navigation{
   list-style: none;
-
   background-color: hsl(0 0% 0% / 0.5);
+}
+.left-header{
+  gap: 2rem;
 }
 /* check if the web support */
 @supports(backdrop-filter: blur(1rem)){
@@ -188,3 +191,26 @@
   aspect-ratio: 1;
 
 }
+
+
+.filter{
+  list-style: none;
+  justify-content: flex-start;
+  padding: 0;
+  
+}
+.filter li {
+  text-align: center;
+  font-size: 1.25rem;
+  border: 1px solid black;
+  padding-inline: 1rem;
+  padding-block: 0.2em;
+  background-color: pink;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
+}
+.filter .selected{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+

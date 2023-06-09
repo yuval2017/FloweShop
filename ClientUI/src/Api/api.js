@@ -7,6 +7,10 @@ export async function getHomeFlowers(){
   const data = await fetchData("/api/flowers", "Failed to fetch host flowers")
   return data
 }
+export async function getFlowerpotAndBouquet(){
+  const data = await fetchData('/api/FlowerpotAndBouquet', 'Load flowerpots and bouquet failed')
+  return data
+}
 export async function getHostFlowers(id){
   const data = await fetchData(`/api/host/flowers/${id}`, `Load flower ${id} failed`)
   return data
