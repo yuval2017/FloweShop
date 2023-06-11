@@ -1,12 +1,17 @@
-.home-page {
-  gap: 3rem;
-  flex-direction: column;
-  padding-inline: 5rem;
+.home-flowers-container{
+  padding-inline: 2rem;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.carousel-container{
+  width: 50%;
+  
 }
 
 .flowers-grid {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 .flower-container-home {
@@ -26,10 +31,7 @@
 .flower-image-container:hover {
   filter: brightness(1.1); /* Updated brightness value on hover */
 }
-.flower-details {
-  position: relative; /* Reset position to relative */
-  z-index: 300; /* Set a higher z-index to keep it above the image */
-}
+
 
 .flower-image-container {
   position: relative;
@@ -47,16 +49,21 @@
   transform: scale(1.2);
 }
 
-.flower-details {
+.flower-grid-details {
   display: flex;
   flex-direction: column;
   justify-content: ce;
-
+  padding-block: 1rem;
   background: linear-gradient(to bottom, white, #FFECF7, #FFD9EF, #FFCCE5);
-  color: #fff;
-  border-inline: inherit;
+  color: black;
+
 }
-.flower-details button {
+.flower-grid-name-price{
+  gap: 0.25em;
+  padding-left: 1rem;
+}
+
+.flower-grid-details button {
   display: inline-block;
   padding: 10px 20px;
   background: transparent;  
@@ -65,11 +72,9 @@
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.3s ease; /* Smooth transition effect for transform */
-
-  
 }
 
-.flower-details button:hover {
+.flower-grid-details button:hover {
   background: linear-gradient(to bottom, white, #FFECF7, #FFD9EF, #FFCCE5);
   text-decoration: underline;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 

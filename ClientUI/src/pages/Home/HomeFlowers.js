@@ -1,7 +1,7 @@
 import { Await, defer, useLoaderData } from "react-router-dom";
-import Carousel  from "../../components/ Carousel";
+import Carousel1  from "../../components/ Carousel";
 import React from "react";
-import { getHomeFlowers } from "../../Api/api";
+import { getHomeFlowers } from "../../api/api";
 import './HomeFlowers.css'
 import { Flowers } from "../../components/Flowers";
 export async function loader(){
@@ -12,9 +12,13 @@ export async function loader(){
 }
 export default function HomeFlowers(){
   const dataPromise = useLoaderData()
-  return(<div className="home-page d-flex">
-    <Carousel />
-    <div className="home-flowers-container">
+  return(
+    <div 
+    className="home-flowers-container d-flex flex-column">
+      <div className="carousel-container d-flex">
+      <Carousel1/>
+      </div>
+     
       <React.Suspense fallback = {<h2>Loading vans...</h2>}>
         <Await resolve={dataPromise.flowers}>
           { flowersData => 
@@ -24,5 +28,5 @@ export default function HomeFlowers(){
       </React.Suspense>
 
     </div>
-  </div>);
+  );
 }

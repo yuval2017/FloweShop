@@ -1,68 +1,39 @@
+import { Link, NavLink, useNavigate, useSearchParams } from "react-router-dom";
+import React from "react";
 import './componentsstyle.css'
-import {NavLink } from "react-router-dom";
-import { useRef, useState } from 'react';
-import shoppingCart from '../assets/shopping-cart-3041.svg'
-function Header(){
-const [mobileNavOpen, setMobileNavOpen] = useState()
-const primaryNavRef = useRef(null);
 
-let resizeTimer;
-window.addEventListener("resize", () => {
-  document.body.classList.add("resize-animation-stopper");
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    document.body.classList.remove("resize-animation-stopper");
-  }, 400);
-});
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { ORCHID_AND_BOQUET_PAGE } from "../constants/PagesConstants";
+import { useSearch } from "../context/SearchProvider";
 
-function handleSideBarClick (event){
-  const boxDemention =  event.target.getBoundingClientRect()
-  const headerRect = primaryNavRef.current.getBoundingClientRect();
-
-  console.log(event.clientX - headerRect.left)
-  if (boxDemention.x === 0){
-    setMobileNavOpen(false)
-  }
-}
-function handleClick(){
-  setMobileNavOpen(prev => !prev)
-}
+export default function Header() {
+  const {searchParams} = useSearch()
+  const typeFilter = searchParams.get("type")
   return (
-    <header onClick={handleSideBarClick} className='primary-header flex'>
-      
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Orchid & Bouquet" id="basic-nav-dropdown">
+              <NavDropdown.Item className={typeFilter === "orchid" ? "active-link" : ""} as={NavLink} to={ORCHID_AND_BOQUET_PAGE + "?type=orchid" }>Orchid</NavDropdown.Item>
+              <NavDropdown.Item className={typeFilter === "1" ? "active-link" : ""}  as={NavLink} to={ORCHID_AND_BOQUET_PAGE + "?type=1" }>Bouquet</NavDropdown.Item>
 
-      <button onClick={handleClick} className='mobile-nav-toggle' aria-controls='primary-navigation' aria-expanded = {mobileNavOpen}>
-        <span className='sr-only'></span>
-      </button>
-      <NavLink className='logo' to="/">
-        AsFlowers
-      </NavLink>
-      <nav className="nav-list flex">
-        <ul id = "primary-navigation" ref={primaryNavRef} data-visible = {mobileNavOpen} className='primary-navigation flex'>
-          <li className="left-header d-flex">
-            {/* <NavLink to="/">Home</NavLink> */}
-            <NavLink to="FlowerpotAndBouquet">Flowerpot/Bouquet</NavLink>
-          </li>
-          <li className='cart-nav'>
-            <NavLink  to = "cart">
-              <img className='cart-icon' src={shoppingCart} alt ="Not Found"/>
-            </NavLink>
-            <div className='items-num'>
-              100
-            </div>
-          </li>
-          {/* <li className="middle-header">
-            <Link to="/about">About</Link>
-            <Link to="/Flowers">Flowers</Link>
-          </li> */}
-          {/* <li className="right-header">
-            <div className='shopping-cart-icon-container'>
-              <img className='shopping-cart-icon' src={shopping_cart} alt = "fail load cart"/>
-            </div>
-          </li> */}
-        </ul>
-      </nav>
-    </header>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
-export default Header;

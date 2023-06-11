@@ -1,6 +1,40 @@
+
+/* @media(min-width: 576px){
+  .dropdown:hover > .dropdown-menu {
+    display: block; 
+  }
+
+} */
+
+.dropdown-item:hover{
+  text-decoration: underline;
+  font-weight: bold;
+}
+.dropdown-item:active{
+  background-color: white;
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+.dropdown-item.active{
+  background-color: white !important;
+  color: black !important;
+}
+.active-link {
+  /* Add your custom styles here */
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
+  /* Add more styles as needed */
+}
+
+
+
 .resize-animation-stopper * {
   transition: none !important;
   animation: none !important;
+}
+.navbar-nav{
+  display: flex;
+  justify-content: flex-end;
 }
 .flex{
   display: flex;
@@ -208,9 +242,42 @@
   background-color: pink;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
 }
+.filter li:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
 .filter .selected{
   text-decoration: underline;
   font-weight: bold;
 }
+
+@media(max-width: 700px){
+  .flower-detail-container{
+    flex-direction: column;
+  }
+}
+.flower-detail-container{
+  padding-inline: 2rem;
+  gap: 2rem;
+}
+.flower-detail-image-container{
+  flex: 1;
+}
+.flower-detail-image-container img{
+  width: 100%;
+  height: auto;
+}
+.flower-data{
+  flex: 1;
+  color: black;
+}
+.flower-data h2{
+  padding: 0;
+}
+
+.flower-detail-container{
+}
+
 
 
