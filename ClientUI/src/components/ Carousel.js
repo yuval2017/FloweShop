@@ -4,16 +4,19 @@ import Carousel from 'react-bootstrap/Carousel';
 export default function Carousel1() {
   const data = [
     {
+     key: "1",
      image: require('../assets/Flowers/Bouquet_1.jpeg'), 
      caption:"Caption",
      description:"Description Here"
     },
     {
+      key: "2",
       image:require('../assets/Flowers/Bouquet_2.jpeg'), 
       caption:"Caption",
       description:"Description Here"
      },
      {
+      key: "3",
       image:require('../assets/Flowers/Bouquet_3.jpeg'), 
       caption:"Caption",
       description:"Description Here"
@@ -28,7 +31,7 @@ export default function Carousel1() {
       <Carousel activeIndex={index} onSelect={handleSelect}>
          {data.map((slide, i) => {
           return (
-            <Carousel.Item interval={5000}>        
+            <Carousel.Item interval={5000} key={slide.key}>        
           <img
             className="d-block w-100"
             src={slide.image}

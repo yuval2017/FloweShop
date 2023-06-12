@@ -12,11 +12,13 @@ export function Flowers({flowersData}){
   if (flowersData === undefined){
     return <div>Undifined FLowers Data</div>
   }
+
   return (
     <div  className="flowers-grid">
-      { flowersData.map(flower => 
-          <div key = {flower.id} className="flower-container-home">
-            <Link to={flower.id}
+      { flowersData.map(flower => {
+        return(
+          <div key = {flower.key} className="flower-container-home">
+            <Link to={`/${flower.key}`}
               state={{search: `?${searchParams.toString()}`, type: typeFilter}}
               >
               <div className="flower-image-container">
@@ -30,7 +32,7 @@ export function Flowers({flowersData}){
               </div>
               <button>Add to cart</button>
             </div>
-          </div>
+          </div>);}
         )}
       </div>
   );

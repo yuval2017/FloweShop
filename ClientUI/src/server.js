@@ -8,19 +8,19 @@ createServer({
     },
 
     seeds(server) {
-        server.create("flower", { id: "1", name: "Modest Explorer", price: 60, description: "des", imageUrl: 'Bouquet_1.jpeg', type: {category: "bouquet"} })
-        server.create("flower", { id: "2", name: "Beach Bum", price: 80, description: "des", imageUrl: 'Bouquet_2.jpeg', type: {category: "bouquet"}})
-        server.create("flower", { id: "3", name: "Reliable Red", price: 100, description: "des", imageUrl: 'Bouquet_3.jpeg', type: {category: "bouquet"}})
-        server.create("flower", { id: "4", name: "Dreamfinder", price: 65, description: "des", imageUrl: 'Bouquet_4.jpeg', type: {category: "bouquet"}})
-        server.create("flower", { id: "5", name: "The Cruiser", price: 120, description: "des", imageUrl: 'Bouquet_5.jpeg', type: {category: "bouquet"}})
-        server.create("flower", { id: "6", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Bouquet_6.png', type: {category: "bouquet"}})
-        server.create("flower", { id: "7", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_1.png', type: {category: "flowerpot", type: "orchid"}})
-        server.create("flower", { id: "8", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_2.png', type: {category: "flowerpot", type: "orchid"}})
-        server.create("flower", { id: "9", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_3.png', type: {category: "flowerpot", type: "orchid"}})
-        server.create("flower", { id: "11", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_4.png', type: {category: "flowerpot", type: "1"}})
-        server.create("flower", { id: "12", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_5.png', type: {category: "flowerpot", type: "1"}})
-        server.create("flower", { id: "13", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_6.png', type: {category: "flowerpot", type: "1"}})
-        server.create("flower", { id: "14", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_7.png', type: {category: "flowerpot", type: "1"}})
+        server.create("flower", { key: "1", name: "Modest Explorer", price: 60, description: "des", imageUrl: 'Bouquet_1.jpeg', category: "blossom", type: "bouquet"})
+        server.create("flower", { key: "2", name: "Beach Bum", price: 80, description: "des", imageUrl: 'Bouquet_2.jpeg', ategory: "blossom", type: "bouquet"})
+        server.create("flower", { key: "3", name: "Reliable Red", price: 100, description: "des", imageUrl: 'Bouquet_3.jpeg', category: "blossom", type: "bouquet"})
+        server.create("flower", { key: "4", name: "Dreamfinder", price: 65, description: "des", imageUrl: 'Bouquet_4.jpeg', category: "blossom", type: "bouquet"})
+        server.create("flower", { key: "5", name: "The Cruiser", price: 120, description: "des", imageUrl: 'Bouquet_5.jpeg', category: "blossom", type: "bouquet"})
+        server.create("flower", { key: "6", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Bouquet_6.png', category: "blossom", type: "bouquet"})
+        server.create("flower", { key: "7", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_1.png', category: "flowerpot", type: "orchid"})
+        server.create("flower", { key: "8", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_2.png', category: "flowerpot", type: "orchid"})
+        server.create("flower", { key: "9", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_3.png', category: "flowerpot", type: "orchid"})
+        server.create("flower", { key: "11", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_4.png', category: "flowerpot", type: "1"})
+        server.create("flower", { key: "12", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_5.png', category: "flowerpot", type: "1"})
+        server.create("flower", { key: "13", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_6.png', category: "flowerpot", type: "1"})
+        server.create("flower", { key: "14", name: "Green Wonder", price: 70, description: "des", imageUrl: 'Flowerpot_7.png', category: "flowerpot", type: "1"})
         // server.create("flower", { id: "15", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_6.png', type: {category: "flowerpot", type: "1"}})
         // server.create("flower", { id: "16", name: "Green Wonder", price: 70, description: "", imageUrl: 'Flowerpot_6.png', type: {category: "flowerpot", type: "1"}})
 
@@ -43,7 +43,7 @@ createServer({
             return schema.flowers.find(id)
         })
         this.get("/FlowerpotAndBouquet", (schema, request) => {
-            return schema.flowers.where((flower) => flower.type.category === "flowerpot");
+            return schema.flowers.where((flower) => flower.category === "flowerpot");
         });
         this.get("/host/flowers", (schema, request) => {
             

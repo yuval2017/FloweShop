@@ -5,12 +5,18 @@ app = Flask(__name__)
 facade = Facade()  # Create an instance of the Facade
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+# Set SameSite=None and Secure=True for all cookies
+
+# @app.route('/')
+# def hello_world():
+#     return 'Hello World!'
+
+@app.route("/members")
+def members():
+    return {"members": ["Member1"]}
 
 
-@app.route('/api/Flowers/<int:key>', methods=['GET'])
+@app.route('/api/Flower/<int:key>')
 def get_shopitem(key):
     # Retrieve the ShopItem based on the key using the Facade
     res_shopitem = facade.fetch_item(key)
@@ -20,7 +26,7 @@ def get_shopitem(key):
     return jsonify(res_shopitem.obj.get_item_dict())
 
 
-@app.route('/api/home_items', methods=['GET'])
+@app.route('/api/home_items')
 def get_home_items():
     # Fetch the home items using the Facade
     res_home_items = facade.fetch_home_items()
@@ -31,7 +37,7 @@ def get_home_items():
     return jsonify(home_items_list)
 
 
-@app.route('/api/items_by_category/<string:category>', methods=['GET'])
+@app.route('/api/items_by_category/<string:category>')
 def get_items_by_category(category):
     # Fetch items by category using the Facade
     res_items = facade.fetch_items_by_category(category)
@@ -43,4 +49,4 @@ def get_items_by_category(category):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

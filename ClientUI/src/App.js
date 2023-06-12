@@ -10,7 +10,7 @@ import {
 import { ORCHID_AND_BOQUET_PAGE, HOME_PAGE } from './constants/PagesConstants'; // Import the constant
 import Layout from "./layouts/Layout"
 import HomeFlowers, {loader as homeFlowersLoader} from "./pages/Home/HomeFlowers"
-import "./server"
+
 import FlowerpotAndOrchid ,{loader as flowerpotAndBouquetLoader} from "./pages/FlowerpotAndBouquet/FlowerpotAndOrchid"
 import FlowerDetail, {loader as flowerDetailLoader} from "./components/FlowerDetail"
 const router = createBrowserRouter(createRoutesFromElements(
@@ -32,7 +32,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       loader={flowerDetailLoader}
       />
      </Route>
-     <Route path=":id" element={<FlowerDetail />} loader={flowerDetailLoader} />
+     <Route exact path=":id" element={<FlowerDetail />} loader={flowerDetailLoader} />
   </Route>
 ))
 

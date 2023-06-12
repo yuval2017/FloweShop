@@ -7,7 +7,7 @@ class Flower(ShopItem):
 
     def __init__(self, key: int, name: str, price, description: str, img_url: str, category: str, flower_type: str,
                  colors: List[str]):
-        super().__init__(key, name, category, img_url, description, price)
+        super().__init__(key, name, price, description, img_url, category)
         self._flower_type: str = flower_type
         self._colors: List[str] = colors
 
@@ -29,6 +29,6 @@ class Flower(ShopItem):
 
     def get_item_dict(self) -> dict:
         item_dict = super().get_item_dict()
-        item_dict['flower_type'] = self.flower_type
+        item_dict['type'] = self.flower_type
         item_dict['colors'] = self.colors
         return item_dict

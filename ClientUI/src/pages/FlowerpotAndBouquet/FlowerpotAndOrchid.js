@@ -1,13 +1,14 @@
 
 import React from "react";
 import { Await, defer, useLoaderData, useSearchParams } from "react-router-dom";
-import { getFlowerpotAndBouquet } from "../../api/api";
+
 import { Flowers } from "../../components/Flowers";
 import './FlowerpotAndOrchid.css'
 import Filter from "../../components/Filter";
 import { useSearch } from "../../context/SearchProvider";
+import { getFlowerpotAndBouquet } from "../../api/FlaskAPI";
 export async function loader(){
-    const data = getFlowerpotAndBouquet()
+    const data = getFlowerpotAndBouquet("flowerpot")
     return defer({data: data})
 }
 
@@ -28,7 +29,7 @@ const elements = [{name: 'Orchids', handleClick:() => setSearchParam('type', 'or
         <Await resolve={promiseData.data}>
           { data =>
             {
-              const filterData = !typeFilter ? data: data.filter(data => data.type.type === typeFilter)
+              const filterData = !typeFilter ? data: data.filter(data => data.type === typeFilter)
               return(
                   <Flowers flowersData = {filterData}/>
               );

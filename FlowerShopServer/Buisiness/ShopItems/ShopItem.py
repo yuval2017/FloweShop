@@ -63,7 +63,8 @@ class ShopItem(ABC):
         return {
             'key': self.key,
             'name': self.name,
+            'price': self.price,
             'category': self.category,
             'imageUrl': self._image_url,
-            "price": self.price
+            'description': self.description
         }
