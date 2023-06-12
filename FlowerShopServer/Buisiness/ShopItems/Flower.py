@@ -5,8 +5,9 @@ from Buisiness.ShopItems.ShopItem import ShopItem
 
 class Flower(ShopItem):
 
-    def __init__(self, key: int, name: str, category: str, flower_type: str, colors: List[str]):
-        super().__init__(key, name, category)
+    def __init__(self, key: int, name: str, price, description: str, img_url: str, category: str, flower_type: str,
+                 colors: List[str]):
+        super().__init__(key, name, category, img_url, description, price)
         self._flower_type: str = flower_type
         self._colors: List[str] = colors
 

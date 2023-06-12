@@ -1,3 +1,4 @@
+from Buisiness.Response import Response
 from DataLayer.DataLayerController import DataLayerController
 
 
@@ -25,10 +26,14 @@ class ShopItemsController:
         self._home_items = new_home_items
 
     def filter_by_category(self, category: str):
-        return self._data_layer_controller.get_items_by_category(category)
+        return Response(obj=self._data_layer_controller.get_items_by_category(category))
 
     # check if the item in the dict if not return it from db
     def get_item(self, item_key):
         if item_key in self._items:
-            return self._items[item_key]
-        return self._data_layer_controller.get_item(item_key)
+            return Response(obj=self._items[item_key])
+        # need also return response
+        return Response(obj=self._data_layer_controller.get_item(item_key))
+
+    def get_home_items(self):
+        return Response(obj=self.home_items)
