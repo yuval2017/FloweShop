@@ -1,43 +1,22 @@
 
 import React from "react";
-import { Await, defer, useLoaderData, useSearchParams } from "react-router-dom";
+import {defer, useLoaderData } from "react-router-dom";
 
-import { Flowers } from "../../components/Flowers";
 import './FlowerpotAndOrchid.css'
-import Filter from "../../components/Filter";
-import { useSearch } from "../../context/SearchProvider";
-import { getFlowerpotAndBouquet } from "../../api/FlaskAPI";
-export async function loader(){
-    const data = getFlowerpotAndBouquet("flowerpot")
+import { getFLowersByCategory } from "../../api/FlaskAPI";
+import FlowersDisplay from "../../components/FLowersDisplay";
+import { FLOWERPOT_AND_ORCHID } from "../../constants/FlowersCategorys";
+export async function loader({request}){
+    const data = getFLowersByCategory("flowerpot")
     return defer({data: data})
 }
 
 
 export default function FlowerpotAndOrchid(){
-
-const {setSearchParam ,searchParams, clearSearch} = useSearch()
-const typeFilter = searchParams.get("type")
 const promiseData = useLoaderData()
-
-const elements = [{name: 'Orchids', handleClick:() => setSearchParam('type', 'orchid')},
-{name: 'Bouquet', handleClick:() => setSearchParam('type', '1')}]
   return (
     <div className="flowerpotAndBouquet d-flex">
-      <Filter elements={elements}/>
-      <button onClick={clearSearch}>Clear</button>
-      <React.Suspense fallback= {<h1>Loading Page...</h1>}>
-        <Await resolve={promiseData.data}>
-          { data =>
-            {
-              const filterData = !typeFilter ? data: data.filter(data => data.type === typeFilter)
-              return(
-                  <Flowers flowersData = {filterData}/>
-              );
-            }
-          }
-        </Await>
-      </React.Suspense>
-      
+      <FlowersDisplay promiseData={promiseData.data} types={FLOWERPOT_AND_ORCHID.types} filterBy ={"type"}/>
     </div>
   );
 }

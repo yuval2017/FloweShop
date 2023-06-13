@@ -23,7 +23,7 @@ export default function FlowerDetail(){
   return(
   <div>
     <React.Suspense fallback={<div>Loading flower details...</div>}>
-      <Link to ={`..${search}`}
+      <Link relative="path"  to ={`..${search}`}
         >
         &larr; <span>{`Back to ${type}`}</span>
         </Link>

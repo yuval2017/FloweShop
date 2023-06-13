@@ -7,12 +7,13 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom"
-import { ORCHID_AND_BOQUET_PAGE, HOME_PAGE } from './constants/PagesConstants'; // Import the constant
+import { ORCHID_AND_BOQUET_PAGE, HOME_PAGE, FLOWERS_PAGE } from './constants/PagesConstants'; // Import the constant
 import Layout from "./layouts/Layout"
 import HomeFlowers, {loader as homeFlowersLoader} from "./pages/Home/HomeFlowers"
 
 import FlowerpotAndOrchid ,{loader as flowerpotAndBouquetLoader} from "./pages/FlowerpotAndBouquet/FlowerpotAndOrchid"
 import FlowerDetail, {loader as flowerDetailLoader} from "./components/FlowerDetail"
+import Flowers, {loader as flowersLoader} from "./pages/Flowers/Flowers";
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path={HOME_PAGE} element={<Layout />}>
      <Route
@@ -31,6 +32,14 @@ const router = createBrowserRouter(createRoutesFromElements(
       element={<FlowerDetail />}
       loader={flowerDetailLoader}
       />
+     </Route>
+     <Route path={FLOWERS_PAGE} 
+     element = {<Flowers />}
+     loader={flowersLoader}
+     >
+      <Route path=":id" 
+      element={<FlowerDetail />}
+      loader={flowerDetailLoader}/>
      </Route>
      <Route exact path=":id" element={<FlowerDetail />} loader={flowerDetailLoader} />
   </Route>

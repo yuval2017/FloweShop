@@ -19,7 +19,7 @@ export const getHomeFlowers = async () => {
   }
 };
 
-export const getFlowerpotAndBouquet = async (category) => {
+export const getFLowersByCategory = async (category) => {
   try {
     const response = await axios.get(`/api/items_by_category/${category}`);
     return response.data;

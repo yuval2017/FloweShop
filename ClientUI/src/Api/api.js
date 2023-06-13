@@ -1,7 +1,6 @@
 
 export async function getFlower(id){
   const data = await fetchData(`/api/flowers/${id}`, `Load flower ${id} failed`)
-  console.log(data)
   return data
 }
 export async function getHomeFlowers(){

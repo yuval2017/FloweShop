@@ -19,7 +19,6 @@ function handleSideBarClick (event){
   const boxDemention =  event.target.getBoundingClientRect()
   const headerRect = primaryNavRef.current.getBoundingClientRect();
 
-  console.log(event.clientX - headerRect.left)
   if (boxDemention.x === 0){
     setMobileNavOpen(false)
   }
