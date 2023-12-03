@@ -2,11 +2,10 @@
 
 import React from "react";
 import { Await } from "react-router-dom";
-import { Flowers } from "./Flowers";
+import { Flowers } from "./FlowersDisplay/Flowers";
 import Filter from "./Filter";
 import { useSearch } from "../context/SearchProvider";
-import { firstCharToUpperrcase } from "../utils/StringUtils";
-import Button from 'react-bootstrap/Button';
+import { firstCharToUpperrcase } from "../utils";
 
 
 export default function FlowersDisplay({promiseData, types, filterBy}){

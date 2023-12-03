@@ -1,8 +1,7 @@
 import { Await, Link, defer, useLoaderData, useLocation } from "react-router-dom";
-
 import React from "react";
-import './componentsstyle.css'
-import { getFlower } from "../api/FlaskAPI";
+import '../componentsstyle.css'
+import { getFlower } from "../../api";
 export async function loader({params}){
   const fetchData =  getFlower(params.id)
   return defer({flowerDetail: fetchData})
@@ -18,7 +17,7 @@ export default function FlowerDetail(){
 
 
   function getImagePath(imgUrl){
-    return require('../assets/Flowers/' + imgUrl)
+    return require('../../assets/Flowers/' + imgUrl)
   }
   return(
   <div>

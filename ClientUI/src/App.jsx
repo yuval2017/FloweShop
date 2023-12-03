@@ -12,8 +12,9 @@ import Layout from "./layouts/Layout"
 import HomeFlowers, {loader as homeFlowersLoader} from "./pages/Home/HomeFlowers"
 
 import FlowerpotAndOrchid ,{loader as flowerpotAndBouquetLoader} from "./pages/FlowerpotAndBouquet/FlowerpotAndOrchid"
-import FlowerDetail, {loader as flowerDetailLoader} from "./components/FlowerDetail"
+import FlowerDetail, {loader as flowerDetailLoader} from "./components/FlowersDisplay/FlowerDetail"
 import Flowers, {loader as flowersLoader} from "./pages/Flowers/Flowers";
+
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path={HOME_PAGE} element={<Layout />}>
      <Route
@@ -48,9 +49,7 @@ const router = createBrowserRouter(createRoutesFromElements(
 export default function App() {
   return (
     <div className="app-container">
-      <RouterProvider router={router} />
-      
-      
+      <RouterProvider router={router} />     
     </div>
   )
 }

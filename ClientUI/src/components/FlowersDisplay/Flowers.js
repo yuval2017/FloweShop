@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSearch } from "../context/SearchProvider";
+import { useSearch } from "../../context/SearchProvider";
 export function Flowers({flowersData}){
 
   const {searchParams} = useSearch()
   const typeFilter = searchParams.get("type")
 
   function getImagePath(imgUrl){
-    return require('../assets/Flowers/' + imgUrl)
+    return require('../../assets/Flowers/' + imgUrl)
   }
   if (flowersData === undefined){
     return <div>Undifined FLowers Data</div>

@@ -6,7 +6,7 @@ import './FlowerpotAndOrchid.css'
 import { getFLowersByCategory } from "../../api/FlaskAPI";
 import FlowersDisplay from "../../components/FLowersDisplay";
 import { FLOWERPOT_AND_ORCHID } from "../../constants/FlowersCategorys";
-export async function loader({request}){
+export async function loader(){
     const data = getFLowersByCategory("flowerpot")
     return defer({data: data})
 }
